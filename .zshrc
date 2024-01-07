@@ -1,11 +1,7 @@
 # tmux autostart if not already in tmux.
 if [[ ! -n $TMUX ]]; then
-  tmux new-session
+  tmux
 fi
-
-# ssh-agent
-eval `ssh-agent` &> /dev/null
-eval `ssh-add ~/.ssh/id_ed25519` &> /dev/null
 
 # zsh autosuggestion
 source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
