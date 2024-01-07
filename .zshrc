@@ -1,6 +1,11 @@
 # tmux autostart if not already in tmux.
 if [[ ! -n $TMUX ]]; then
-  tmux
+  count=`ps aux | grep tmux | grep -v grep | wc -l`
+  if [[ $count -eq  0 ]] then
+    tmux
+  elif [[ $count -eq 1 ]] then
+    tmux a
+  fi
 fi
 
 # zsh autosuggestion
